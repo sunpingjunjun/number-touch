@@ -2,54 +2,82 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ナンバータッチ</title>
+
 <style>
 body{
- text-align:center;
- font-family:sans-serif;
+  margin:0;
+  font-family:sans-serif;
+  text-align:center;
+  background:#f0f8ff;
 }
-button{
- width:80px;
- height:80px;
- font-size:40px;
- margin:10px;
+
+h1{
+  color:#003366;
+}
+
+#message{
+  font-size:28px;
+  font-weight:bold;
+  margin:10px;
+}
+
+#game{
+  position:relative;
+  width:100vw;
+  height:75vh;
+}
+
+.number{
+  position:absolute;
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  border:none;
+  background:#4da6ff;
+  color:white;
+  font-size:36px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.correct{
+  background:#4caf50;
+}
+
+.hint{
+  background:orange !important;
+  animation:blink 0.8s infinite;
+}
+
+@keyframes blink{
+  50%{
+    opacity:0.3;
+  }
+}
+
+#clear{
+  font-size:40px;
+  color:green;
+  margin-top:10px;
+}
+
+.restart{
+  font-size:28px;
+  padding:15px 30px;
+  border:none;
+  border-radius:12px;
+  background:#ff9800;
+  color:white;
 }
 </style>
 </head>
+
 <body>
 
 <h1>ナンバータッチ</h1>
-<p id="message">1を押そう！</p>
 
-<button onclick="check(1)">1</button>
-<button onclick="check(2)">2</button>
-<button onclick="check(3)">3</button>
+<div id="message">1を押そう！</div>
 
-<script>
-let nextNum = 1;
-
-function check(num){
-
- if(num === nextNum){
-
-   nextNum++;
-
-   if(nextNum <= 3){
-     document.getElementById("message").textContent =
-       nextNum + "を押そう！";
-   }else{
-     document.getElementById("message").textContent =
-       "クリア！";
-   }
-
- }else{
-
-   document.getElementById("message").textContent =
-     "ちがうよ！";
- }
-
-}
-</script>
-
-</body>
-</html>
+<div id
